@@ -1,10 +1,21 @@
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/nvchad/base46/"
 vim.g.mapleader = " "
 
+-- change pwd to path
+local group_cdpwd = vim.api.nvim_create_augroup("group_cdpwd", { clear = true })
+vim.api.nvim_create_autocmd("VimEnter", {
+  group = group_cdpwd,
+  pattern = "*",
+  callback = function()
+    vim.api.nvim_set_current_dir(vim.fn.expand("%:p:h"))
+  end,
+})
+
+
 -- bootstrap lazy and all plugins
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
-if not vim.uv.fs_stat(lazypath) then
+if not vim.loop.fs_stat(lazypath) then
   local repo = "https://github.com/folke/lazy.nvim.git"
   vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
 end
