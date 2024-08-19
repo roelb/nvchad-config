@@ -7,10 +7,9 @@ vim.api.nvim_create_autocmd("VimEnter", {
   group = group_cdpwd,
   pattern = "*",
   callback = function()
-    vim.api.nvim_set_current_dir(vim.fn.expand("%:p:h"))
+    vim.api.nvim_set_current_dir(vim.fn.expand "%:p:h")
   end,
 })
-
 
 -- bootstrap lazy and all plugins
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
@@ -44,6 +43,9 @@ require "options"
 require "nvchad.autocmds"
 
 vim.wo.relativenumber = true
+
+vim.o.title = true
+vim.o.titlestring = "NVIM - %<%F"
 
 vim.schedule(function()
   require "mappings"
