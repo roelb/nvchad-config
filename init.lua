@@ -46,6 +46,7 @@ vim.wo.relativenumber = true
 
 vim.o.title = true
 vim.o.titlestring = "NVIM - %<%F"
+vim.opt.shell = '/bin/bash'
 
 vim.schedule(function()
   require "mappings"
