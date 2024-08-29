@@ -77,6 +77,9 @@ return {
   { "sindrets/diffview.nvim", lazy = false },
   {
     "supermaven-inc/supermaven-nvim",
+    cmd = {
+      "SupermavenStart",
+    },
     config = function()
       require("supermaven-nvim").setup {
         keymaps = {
