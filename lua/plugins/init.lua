@@ -78,7 +78,7 @@ return {
   {
     "supermaven-inc/supermaven-nvim",
     cmd = {
-      "SupermavenStart",
+      "SupermavenUseFree",
     },
     config = function()
       require("supermaven-nvim").setup {
